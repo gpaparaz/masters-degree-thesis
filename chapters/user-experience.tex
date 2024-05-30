@@ -1,2 +1,20 @@
 \chapter{User Experience }
 \label{cap:user-experience}
+
+\subsection{Il punto di partenza}
+Inizialmente l'applicazione si presentava formata da due sole pagine: nella prima il wizard in cui l'utente va a compilare il form di dettaglio del paziente, la seconda la pagina di risultati, in cui i grafici venivano disposti a griglia, occupando lo spazio disponibile.\\
+Una pecca presente nel POC iniziale era la mancanza di contesto nei grafici. Questo rendeva ostica la comprensione dei grafici a chi non ne ha background, in quanto l'utente non aveva idea di cosa stesse guardando senza avere prima una spiegazione data da chi gli stava somministrando il prodotto. \\
+Un altro problema era la lunghezza del wizard, che inizialmente si componeva di 4 step, e che successivamente ha visto un taglio di uno step accorpandolo al primo. \\
+
+\subsection{Modifiche apportate}
+
+Nella trasformazione da POC a software il numero di pagine è aumentato, in particolare una è per il wizard, una è per i risultati, una per la valutazione dell'utente, ed infine una per il tutorial. \\
+Il tutorial è stato messo nell'header in quanto rappresenta un importante punto di visibilità per l'utente, che deve potervi accedere sempre in modo facile. \\
+Il wizard è stato semplificato eliminando uno step in quanto si poteva accorpare con il precedente. 
+
+La pagina di risultati è quella che ha subito maggiori modifiche. Più nel dettaglio, è stato inserito un tabbar con cui l'utente può cambiare visualizzazioni. L'ordine di tale tabbar è stato pensato affinchè l'utente veda prima le singole visualizzazioni, e poi possa vederle tutte insieme una sotto l'altra per avere una visione d'insieme. Quando si clicca sul tab “tutti i grafici” compare un modale bloccante, ovvero l'utente non può disattivarlo se non compila tutto il form in esso contenuto. E' sufficiente che il modale venga compilato una sola volta. Questo primo form è di fondamentale importanza per noi in quanto ci permette di tenere traccia dell'utilità percepita dal medico quando visualizza i vari grafici.\\ 
+E' possibile accedere ad un altro form attraverso il bottone “evaluation” posto in linea con il tabbar. Questo form permette di comprendere l'utilità percepita del software in generale. \\
+
+Quando si visualizzano i grafici è possibile inoltre interagire con gli stessi modificando alcuni parametri presenti accanto a ciascuno. Per esempio quando l'utente cambia il valore di età il grafico viene ricalcolato. \\
+
+Ulteriore modifiche sono state apportate ai colori dei grafici. Inizialmente il colore dell'incertezza era rappresentato dal celeste; poichè il brand identity del prodotto prevede proprio l'azzurro come colore primario ho proposto una modifica, usando al suo posto il grigio. Il grigio, per definizione, si presta proprio al dubbio e incertezza. Si è visto infatti come il grigio risulta essere più esplicito nel comunicare tale messaggio rispetto al celeste usato precedentemente. \\

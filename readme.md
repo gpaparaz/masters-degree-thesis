@@ -199,3 +199,9 @@ Remember not to unconditionally stick with this structure, as it's just an examp
 If you feel you don't need this chapter or that section, or you prefer a different order and organization of the content do as you want.
 
 Before really starting to write actual content you should take some time to think about the structure of your chapters, filling them with the (empty) sections you will then develop, as it should help later on, avoiding to constantly rewrite and reorder stuff.
+
+
+## Note operative:
+Quando si aggiungono riferimenti in bibliografia lanciare a terminale 
+`biber thesis`
+e poi ricompilare 
