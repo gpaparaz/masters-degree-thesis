@@ -1,13 +1,23 @@
-\chapter{Visualizzazioni vaghe}
+\chapter{Machine learning e visualizzazioni vaghe}
 \label{cap:visualizzazioni-vaghe}
 
 \section{Machine learning in ambito medico }
 
-\section{Cosa ne pensano gli utenti nel 2024}
+Negli ultimi anni, l'IA ha conosciuto uno sviluppo significativo, rendendo possibile immaginare un futuro in cui diagnosi errate e trattamenti sintomatici saranno superati. La gestione e l'analisi delle enormi quantità di dati generate dalle immagini mediche e dai test diagnostici consentono all'IA di sviluppare applicazioni sofisticate, inaugurando un'era di medicina elettronica.\\
+Nonostante alcuni algoritmi siano in grado di eguagliare e talvolta superare i clinici in varie attività, l'IA non è ancora integrata completamente nella pratica medica quotidiana. Questo ritardo è dovuto a una serie di sfide che devono essere affrontate prima di poter sfruttare appieno il potenziale dell'IA in medicina.\\
+
+I sistemi di IA apprendono mediante un processo analogo a quello degli studenti di medicina, ovvero tramite analisi di dati, esecuzione di compiti pratici e apprendimento dagli errori. Dopo aver elaborato un numero sufficiente di dati e annotazioni, le prestazioni dell'algoritmo vengono valutate per verificarne l'accuratezza, simile agli esami per gli studenti di medicina. Questo processo di valutazione include l'utilizzo di dati di prova con risposte note per verificare la capacità dell'algoritmo di identificare correttamente le risposte. In base ai risultati, l'algoritmo può essere modificato, alimentato con ulteriori dati o implementato.\\
+
+Molti algoritmi di IA possono apprendere dai dati, sia che si tratti di immagini mediche (come le scansioni MRI) sia di dati numerici (come la pressione sanguigna). Dopo aver elaborato questi dati, gli algoritmi sono in grado di fornire risultati probabilistici o classificazioni, come identificare un campione di tessuto come canceroso o stimare la probabilità di un coagulo arterioso. Le prestazioni degli algoritmi vengono poi confrontate con quelle dei medici per determinare se la diagnosi dell'IA è accurata e clinicamente rilevante.\\
+
+Un esempio significativo di IA in ambito medico è l'algoritmo DLAD (Rilevamento Automatico basato su Apprendimento Profondo), sviluppato presso l'Università Nazionale di Seoul. Questo algoritmo analizza le radiografie del torace per rilevare crescite cellulari anomale, come i tumori. Nei test comparativi, DLAD ha dimostrato di superare 17 su 18 medici nella capacità di rilevamento delle anomalie.\\
+Un altro esempio significativo di algoritmo IA nel settore medico è stato sviluppato nell'autunno del 2018 dai ricercatori di Google AI Healthcare. Questo algoritmo, denominato LYNA (Assistente dei Linfonodi), è stato progettato per identificare i tumori metastatici del cancro al seno dalle biopsie dei linfonodi. LYNA rappresenta un progresso significativo poiché è in grado di individuare aree sospette nei campioni di biopsia, una capacità che va oltre la percezione visiva umana. Nei test condotti su due diversi database, LYNA ha dimostrato un'accuratezza del 99\% nel classificare i campioni come cancerosi o non cancerosi. Inoltre, ha ridotto della metà il tempo medio di revisione delle diapositive quando utilizzato dai medici come supporto alla loro analisi tradizionale.\\
+Altri algoritmi basati su immagini hanno mostrato abilità simili nel migliorare l'accuratezza diagnostica dei medici. Nel breve termine, questi algoritmi possono essere utilizzati per confermare diagnosi e spiegare più rapidamente i risultati ai pazienti senza compromettere l'accuratezza. A lungo termine, algoritmi approvati dalle autorità competenti potrebbero operare autonomamente, consentendo ai medici di concentrarsi su casi complessi che richiedono l'intervento umano.\\
+Esempi come DLAD e LYNA dimostrano come gli algoritmi possano supportare i medici nella classificazione di campioni patologici, evidenziando caratteristiche delle immagini che necessitano di un'analisi più approfondita. Tuttavia, nonostante i benefici potenziali per pazienti e medici, l'integrazione clinica degli algoritmi IA è frenata da sfide burocratiche significative.\\
+
+\subsection{Cosa ne pensano gli utenti nel 2024}
 Secondo una recente indagine\footcite{womak:intelligenza-artificiale-e-medicina} dell'EngageMinds HUB, il Centro di ricerca dell'Università Cattolica, gli italiani ad oggi segnalano fiducia e timori verso l'uso dell'intelligenza artificiale in ambito medico.\\
-
 Dal loro studio emerge che 6 italiani su 10 sono favorevoli all'uso dell'Intelligenza artificiale in ambito sanitario, di questi, l'88\% la userebbe per semplificare il linguaggio dei referti, l'86\% come supporto al medico per effettuare una diagnosi e l'80\% come aiuto per stabilire una terapia farmacologica adeguata, mentre quasi 6 italiani su 10 la utilizzerebbero come strumento per un'autoanalisi.\\
-
 Di opinione meno positiva sono 7 italiani su 10 secondo i quali l'AI potrà causare una perdita della relazione e del contatto diretto con il medico.\\
 
 Tra le principali opportunità che l'uso delle tecnologie digitali potranno portare, poco meno di 8 italiani su 10 (78\%) riferiscono che esse porteranno ad una maggiore accessibilità nell'accesso e nell'uso dei servizi, una riduzione dello spreco di carta e un maggior coinvolgimento del paziente grazie ad una maggiore accessibilità al proprio fascicolo sanitario. Il 74\% crede che le AI potranno ridurre i costi a lungo termine; poco meno di 7 su 10 ritengono che possa esserci un miglioramento nei monitoraggi tramite devices (68\%), mentre poco più di 6 su 10 si aspetta che le AI possano migliorare le diagnosi (63\%). Il 68\% degli italiani ritiene che l'uso di tecnologie digitali possano migliorare il monitoraggio da
@@ -16,24 +26,20 @@ remoto.\\
 Un ulteriore rischio che gli italiani percepiscono è legato ai dati sensibili: per il 63\% l'uso dell'Intelligenza Artificiale potrà causare delle problematiche legate alla gestione della privacy, mentre per il 60\% legate alla diffusione di dati sensibili.
 
 
+\section{Visualizzazioni vaghe}
+Le visualizzazioni vaghe, o "fuzzy visualizations", sono un concetto importante in data science che aiuta a gestire l'incertezza e la variabilità nei dati. Quando si tratta di analisi dei dati, spesso ci troviamo a dover affrontare informazioni che contengono errori, rumore o incertezze intrinseche. Le visualizzazioni vaghe sono progettate per rappresentare queste incertezze in modo che gli utenti possano avere una comprensione più completa e affidabile delle informazioni presentate.\\
 
+Uno dei metodi più comuni utilizzati nelle visualizzazioni vaghe è l'impiego degli intervalli di confidenza. Questi intervalli indicano la gamma di valori entro cui si prevede che un parametro si trovi con una certa probabilità. Ad esempio, in un grafico a barre, possiamo vedere delle linee verticali che rappresentano l'intervallo di confidenza per ciascuna barra, fornendo così un'indicazione visiva dell'incertezza associata a ciascun dato.\\
+Nei grafici a linee, le bande di incertezza sono spesso utilizzate per mostrare la variabilità intorno a una linea di tendenza. Queste bande, che possono essere ombreggiate, offrono una rappresentazione visiva chiara dell'incertezza, aiutando a comprendere meglio quanto ci si può fidare di una previsione o di una tendenza osservata. Anche le mappe di calore (heatmaps), sono strumenti efficaci in questo contesto, poiché possono rappresentare dati spaziali o temporali con variazioni di colore o intensità per indicare incertezze.\\
+I grafici di tipo violin plot e box plot sono altre tecniche utili, poiché permettono di visualizzare la distribuzione dei dati insieme alle indicazioni di variabilità e densità. Questi strumenti forniscono una visione dettagliata delle distribuzioni di dati che contengono incertezze, rendendo possibile una comprensione più profonda delle informazioni analizzate.\\
 
-% \intro{Breve introduzione al capitolo}\\
+In sostanza la visualizzazione vaga si propone di rappresentare dei risultati non in formato numerico o simbolico, ma attraverso immagini pittoriche in cui prevale un'incertezza visiva. Questo tipo di rappresentazione visiva è legata a tre fattori principali: vaghezza, indistintitezza e sfocatura.
 
-% \section{Introduzione al progetto}
+Attualmente, nelle scienze dure, come la matematica, la logica e le scienze naturali (biologia, chimica, fisica), l'incertezza viene rappresentata in termini di probabilità, punteggi di confidenza o percentuali. Sebbene questo approccio sia intellettualmente stimolante, non è sempre chiaro se l'incertezza venga realmente compresa dai medici, con il rischio di sopravalutare le informazioni, un fenomeno noto come bias della quantificazione.\\
 
-% \section{Analisi preventiva dei rischi}
-
-% Durante la fase di analisi iniziale sono stati individuati alcuni possibili rischi a cui si potrà andare incontro.
-% Si è quindi proceduto a elaborare delle possibili soluzioni per far fronte a tali rischi.\\
-
-% \begin{risk}{Performance del simulatore hardware}
-%     \riskdescription{le performance del simulatore hardware e la comunicazione con questo potrebbero risultare lenti o non abbastanza buoni da causare il fallimento dei test}
-%     \risksolution{coinvolgimento del responsabile a capo del progetto relativo il simulatore hardware}
-%     \label{risk:hardware-simulator} 
-% \end{risk}
-
-% \section{Requisiti e obiettivi}
-
-
-% \section{Pianificazione}
+Secondo lo studio "Vague Visualizations to Reduce quantification bias in shared medical decision making", dalle immagini è possibile trarre valori numerici in modo "immediato" attraverso diverse modalità, come la posizione su scale graduate, segmenti su un piano cartesiano, angoli o sfumature di colore.\\
+Lo scopo delle visualizzazioni vaghe è quindi sfruttare il gut feeling degli utenti, quindi lasciare che sia la loro percezione a guidarli e meno la razionalità.\\
+L'incertezza può essere rappresentata con varie tecniche e modalità. Non è stata ancora definita la “forma”
+migliore da utilizzare, ma quello che sembra ormai certo è che colore, tonalità, saturazione del colore,
+forma e la trasparenza siano i mezzi più efficaci. In questo studio comparativo si è evidenziato che la
+sfocatura, la posizione e la trasparenza favoriscono la percezione e l'intuizione da parte del fruitore finale, mentre la saturazione risulta meno utile. Relativamente alla tecnica da utilizzare, come ad esempio i glifi di linea, alcuni ricercatori hanno evidenziato che la tecnica stessa dipende anche dalla capacità di “traduzione” o decodifica dell'utente finale.

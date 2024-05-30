@@ -3,10 +3,10 @@
 
 % \intro{Breve introduzione al capitolo}\\
 
-\section{Metodologia agile}
+\section{Metodologia agile e EventStorming}
 \label{sec:metodologia-agile}
 
-Gli sviluppi si sono svolti seguendo la metodologia agile\footcite{womak:agile-manifesto}: sono state schedulate due riunioni mensili allo scopo di tenersi aggiornati sugli sviluppi in corso, in assenza di riunioni c'è comunque stato scambio di messaggi per mantenere presente e continua la comunicazione.\\
+Gli sviluppi si sono svolti seguendo la metodologia agile\footcite{site:agile-manifesto}: sono state schedulate due riunioni mensili allo scopo di tenersi aggiornati sugli sviluppi in corso, in assenza di riunioni c'è comunque stato scambio di messaggi per mantenere presente e continua la comunicazione.\\
 Il principio di fondo che si è seguito è quello dello sviluppo iterativo, ovvero tenendo presente l'obiettivo finale del software si è proceduto per step implementando prima soluzioni più semplici ed immediate e poi si è proceduto nell'evoluzione di alcune funzionalità per implementare soluzioni più performanti e scalabili. \\
 
 Le comunicazioni all'interno del team si sono basate su riunioni online, di persona e condivisione di materiale informativo per accordarci sul lavoro da svolgere.\\
@@ -19,36 +19,16 @@ L'EventStorming è una tecnica collaborativa utilizzata principalmente per esplo
     \caption{Esempio di workflow utilizzato per Epimetheus}
 \end{figure}
 
-\subsection{Componenti e fasi dell'EventStorming}
-\begin{itemize}
-    \item \textbf{Event:} Gli eventi sono i cambiamenti di stato significativi che accadono all'interno del sistema. Vengono rappresentati come note adesive arancioni e poste su una lavagna o un muro in ordine cronologico. Gli eventi sono descritti in modo semplice, solitamente come frasi al passato (e.g., "Ordine confermato", "Pagamento ricevuto").
-    \item \textbf{Timeline:} Gli eventi vengono organizzati lungo una linea temporale per rappresentare la sequenza in cui accadono. Questo aiuta a visualizzare il flusso di processi e a identificare eventuali lacune o incongruenze.
-    \item \textbf{Attori:} Gli attori sono le persone o i sistemi che causano gli eventi. Questi vengono spesso rappresentati con note adesive di colore diverso, collegati agli eventi che generano.
-\item \textbf{Comandi:} I comandi sono azioni o intenzioni che provocano eventi. Vengono rappresentati con note adesive blu e posizionati prima degli eventi che innescano.
-\item \textbf{Aggregati:} Gli aggregati sono cluster di eventi e comandi che rappresentano unità logiche all'interno del dominio. Vengono spesso identificati in una fase successiva per semplificare e strutturare il modello.
-\item \textbf{Polizze e regole:} Le regole di business o le politiche che influenzano come e quando gli eventi accadono. Possono essere rappresentate con note adesive di un altro colore
-\end{itemize}
+L'EventStorming è una tecnica collaborativa sviluppata da Alberto Brandolini nel 2013, utilizzata principalmente per esplorare e modellare processi complessi e sistemi software attraverso la narrazione di eventi che accadono all'interno di un sistema. È particolarmente utile nel contesto del Domain-Driven Design (DDD). L'obiettivo principale di EventStorming è ottenere una comprensione condivisa del dominio tra tutti i partecipanti, inclusi sviluppatori, stakeholder, esperti di dominio e altri membri del team.\\
 
-\subsection{Tipi di EventStorming}
-\begin{itemize}
-    \item \textbf{Big Picture EventStorming:} Questa variante è utilizzata per avere una visione d'insieme del dominio. Coinvolge un gran numero di partecipanti e mira a identificare tutti gli eventi rilevanti, i punti di interesse e le problematiche principali.
-    \item \textbf{Process Modeling EventStorming:} Questa variante si concentra su specifici processi o flussi all'interno del dominio. È più dettagliata e mira a modellare con precisione come funzionano questi processi.
-    \item \textbf{Design-Level EventStorming:} Questa variante è utilizzata per progettare soluzioni tecniche specifiche. Coinvolge principalmente sviluppatori e si concentra su come implementare gli eventi e i comandi nel codice.
-\end{itemize}
+La tecnica si basa su diverse componenti e fasi. Gli eventi rappresentano i cambiamenti di stato significativi che accadono all'interno del sistema. Vengono descritti in modo semplice, solitamente come frasi al passato, e organizzati cronologicamente lungo una linea temporale. Questo aiuta a visualizzare il flusso dei processi e a identificare eventuali lacune o incongruenze. Gli attori, che sono le persone o i sistemi che causano gli eventi, vengono collegati agli eventi che generano. I comandi sono azioni o intenzioni che provocano eventi e vengono posizionati prima degli eventi che innescano. Gli aggregati sono cluster di eventi e comandi che rappresentano unità logiche all'interno del dominio, identificati in una fase successiva per semplificare e strutturare il modello. Infine, le politiche e le regole di business influenzano come e quando gli eventi accadono.\\
 
-\subsection{Benefici dell'EventStorming}
-\begin{itemize}
-    \item \textbf{Comprensione condivisa:} Favorisce la collaborazione tra tutti i partecipanti, aiutando a costruire una comprensione comune del dominio
-    \item \textbf{Identificazione delle lacune:} Permette di visualizzare facilmente le aree del sistema che potrebbero essere poco chiare o incomplete
-    \item \textbf{Coinvolgimento degli esperti di dominio:} Gli esperti di dominio possono contribuire direttamente alla modellazione, assicurando che il sistema riflette accuratamente la realtà del business.
-    \item \textbf{Velocità e flessibilità:} La natura visiva e interattiva dell'EventStorming lo rende un metodo rapido per esplorare e modellare domini complessi rispetto ai metodi tradizionali di documentazione.
-\end{itemize}
+Esistono diverse varianti di EventStorming, ognuna con un focus specifico. Il Big Picture EventStorming viene utilizzato per avere una visione d'insieme del dominio, coinvolgendo un gran numero di partecipanti per identificare tutti gli eventi rilevanti, i punti di interesse e le problematiche principali. Il Process Modeling EventStorming si concentra su specifici processi o flussi all'interno del dominio, modellando con precisione come funzionano. Il Design-Level EventStorming è impiegato per progettare soluzioni tecniche specifiche, coinvolgendo principalmente sviluppatori e concentrandosi su come implementare gli eventi e i comandi nel codice.\\
 
-\section{Sviluppo iterativo}
-\label{sec:sviluppo-iterativo}
+L'EventStorming offre numerosi benefici. Favorisce la collaborazione tra tutti i partecipanti, aiutando a costruire una comprensione comune del dominio. Permette di visualizzare facilmente le aree del sistema che potrebbero essere poco chiare o incomplete, coinvolgendo direttamente gli esperti di dominio per garantire che il sistema rifletta accuratamente la realtà del business. Inoltre, la natura visiva e interattiva dell'EventStorming lo rende un metodo rapido e flessibile per esplorare e modellare domini complessi rispetto ai metodi tradizionali di documentazione.\\
 
-\section{Event storming}
-\label{sec:event-storming}
+% \section{Sviluppo iterativo}
+% \label{sec:sviluppo-iterativo}
 
 % Di seguito viene data una panoramica delle tecnologie e strumenti utilizzati.
 
