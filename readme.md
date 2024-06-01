@@ -202,6 +202,7 @@ Before really starting to write actual content you should take some time to thin
 
 
 ## Note operative:
-Quando si aggiungono riferimenti in bibliografia lanciare a terminale 
+Quando si aggiungono riferimenti in bibliografia o glossario lanciare a terminale 
 `biber thesis`
+`makeglossaries thesis`
 e poi ricompilare 

@@ -47,7 +47,7 @@ Il frontend è stato sviluppato in React, in particolare le librerie usate sono 
 \end{itemize}
 
 Ho avuto modo di operare piccole modifiche anche al backend, in particolare nella risposta tornata al frontend per calcolare le visualizzazioni. In origine infatti tra i campi modificabili vi era l'età, tuttavia a seguito di analisi si è concluso che non era una dimensione che potesse destare l'interesse del medico, quindi si è deciso di sostituirlo con il peso. In tal modo quindi il medico a frontend può verificare se il paziente, qualcosa aumentasse o diminuisse di peso, avrebbe una migliore risposta all'operazione oggetto della discussione.\\ 
-Ho inoltre predisposto la POST degli endpoint che ricevono i form di valutazione dell'utente, in modo tale che il collega potesse successivamente sviluppare le feature per il salvataggio a csv del form compilato.\\ 
+Ho inoltre predisposto la POST degli endpoint che ricevono i form di valutazione dell'utente, in modo tale che il collega potesse successivamente sviluppare le feature per il salvataggio a csv del form compilato.
 
 \section{Validazione}
 La validazione merita una menzione a parte. Il software opera una doppia validazione: una lato frontend quando l'utente compila i campi, in modo tale da avere subito feedback se qualcosa non è corretto; questa viene fatta tramite chiamata a funzioni di validazioni implementate inizialmente dalla collega e successivamente evolute da me perchè funzionanti con React. Una lato backend, il quale controlla il form pervenuto e verifica se sia tutto conforme.\\
@@ -65,75 +65,3 @@ Abbiamo quindi il componente per l'header, gli step del wizard, il contenuto del
 
 Nota importante è l'utilizzo del global context, ovvero un contesto globale che permette di condividere informazioni tra i diversi componenti senza dover sottostare per forza alla relazione parent-child. All'interno del global context possiamo trovare la gestione degli step, gran parte del form del wizard compilato dall'utente in quanto molte informazioni sono necessarie in più pagine e componenti, i dati fetchati in quanto servono alla pagina Results per calcolare le visualizzazioni. In particolare il global context si occupa di controllare anche se parte di questi dati sono già presenti nel local storage del browser, quindi di inizializzare le rispettive strutture dati. 
 
-
-% Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
-% I diagrammi dei casi d'uso (in inglese \emph{Use Case Diagram}) sono diagrammi di tipo \gls{uml} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
-% Essendo il progetto finalizzato alla creazione di un tool per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi d'uso risultano semplici e in numero ridotto.
-
-% \begin{figure}[!h] 
-%     \centering 
-%     \includegraphics[width=0.9\columnwidth]{usecase/scenario-principale} 
-%     \caption{Use Case - UC0: Scenario principale}
-% \end{figure}
-
-% \begin{usecase}{0}{Scenario principale}
-% \usecaseactors{Sviluppatore applicativi}
-% \usecasepre{Lo sviluppatore è entrato nel plug-in di simulazione all'interno dell'IDE}
-% \usecasedesc{La finestra di simulazione mette a disposizione i comandi per configurare, registrare o eseguire un test}
-% \usecasepost{Il sistema è pronto per permettere una nuova interazione}
-% \label{uc:scenario-principale}
-% \end{usecase}
-
-% \section{Tracciamento dei requisiti}
-
-% Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli use case.\\
-% Sono stati individuati diversi tipi di requisiti e si è quindi fatto utilizzo di un codice identificativo per distinguerli.\\
-% Il codice dei requisiti è così strutturato R(F/Q/V)(N/D/O) dove:
-% \begin{enumerate}
-% 	\item[R =] requisito
-%     \item[F =] funzionale
-%     \item[Q =] qualitativo
-%     \item[V =] di vincolo
-%     \item[N =] obbligatorio (necessario)
-%     \item[D =] desiderabile
-%     \item[Z =] opzionale
-% \end{enumerate}
-% Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
-
-% \newpage
-
-% \begin{table}%
-% \caption{Tabella del tracciamento dei requisti funzionali}
-% \label{tab:requisiti-funzionali}
-% \begin{tabularx}{\textwidth}{lXl}
-% \hline\hline
-% \textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-% \hline
-% RFN-1     & L'interfaccia permette di configurare il tipo di sonde del test & UC1 \\
-% \hline
-% \end{tabularx}
-% \end{table}%
-
-% \begin{table}%
-% \caption{Tabella del tracciamento dei requisiti qualitativi}
-% \label{tab:requisiti-qualitativi}
-% \begin{tabularx}{\textwidth}{lXl}
-% \hline\hline
-% \textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-% \hline
-% RQD-1    & Le prestazioni del simulatore hardware deve garantire la giusta esecuzione dei test e non la generazione di falsi negativi & - \\
-% \hline
-% \end{tabularx}
-% \end{table}%
-
-% \begin{table}%
-% \caption{Tabella del tracciamento dei requisiti di vincolo}
-% \label{tab:requisiti-vincolo}
-% \begin{tabularx}{\textwidth}{lXl}
-% \hline\hline
-% \textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-% \hline
-% RVO-1    & La libreria per l'esecuzione dei test automatici deve essere riutilizzabile & - \\
-% \hline
-% \end{tabularx}
-% \end{table}%
