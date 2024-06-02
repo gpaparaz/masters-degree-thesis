@@ -5,7 +5,7 @@
 
 \section{Il progetto in partenza}
 Il software nasceva come POC, era un monolite unico dove backend e frontend risiedevano nella stessa directory.\\
-Il backend è scritto in python e si occupa di:
+Il backend, scritto in python, si occupava di:
 \begin{itemize}
     \item esporre un endpoint per il frontend 
     \item realizzare calcoli di machine learning per generare le visualizzazioni 
@@ -30,30 +30,40 @@ Nell'architettura a strati, l'applicazione è suddivisa in diversi strati logici
     \item Tecnologie utilizzate: React, JavaScript, HTML, CSS.
     \end{itemize}
 \end{enumerate}
-Questa separazione ha consentito di ottenere la divisione delle responsabilità, ovvero i livelli sono indipendenti l'uno dall'altro, facilitando la manutenzione e l'aggiornamento dei singoli componenti senza influenzare gli altri.\\
 
-Dividere i due moduli e utilizzare un framework permette anche di semplificare gli sviluppo per il frontend, in particolare nel caso in futuro si volesse applicare moduli di registrazione e login, quindi avere cura della sicurezza, oppure ampliare il numero di grafici da mostrare all'utente. \\
-
+Questa separazione ha permesso di ottenere la divisione delle responsabilità, facilitando la manutenzione e l'aggiornamento dei singoli componenti senza influenzare gli altri.\\
+La modularità introdotta permette inoltre di scalare l'applicazione con maggiore facilità, ad esempio nel caso in futuro si volesse applicare moduli di registrazione e login, quindi avere cura della sicurezza, oppure ampliare il numero di grafici da mostrare all'utente. \\
+Il mio focus era principalmente la possibilità di ampliare il software operando un limitato numero di modifiche, quindi portare il frontend e la gestione dei grafici ad una discreta maturità.
 
 \section{Sviluppi}
 Gli sviluppi sono proseguiti in parallelo tra me e i colleghi che ho assistito. Io mi sono occupata principalmente del frontend, sono partita dall'interfaccia del wizard mentre ho assistito i colleghi nella realizzazione di endpoint e sistemazione del backend.\\
-Dapprima sono stati realizzati endpoint separati che facessero la validazione e poi il submit del form, successivamente su mia sollecitazione le logiche sono state accorpate in un unico endpoint affinchè rispondesse con la visualizzazione oppure elencasse i campi non validi. Per quanto riguarda la validazione è stato eseguito un doppio controllo sia lato frontend sia lato backend, allo scopo di avere maggiore robustezza.\\
+Dapprima, sono stati realizzati endpoint separati per la validazione e il submit del form. Successivamente, su mia sollecitazione, le logiche sono state accorpate in un unico endpoint che risponde con la visualizzazione oppure elenca i campi non validi. La validazione è stata implementata sia lato frontend che lato backend per garantire maggiore robustezza.\\
 
-Il frontend è stato sviluppato in React, in particolare le librerie usate sono state:
+\subsection{React}
+Il frontend è stato sviluppato in React, le principali librerie usate sono state:
 \begin{itemize}
-    \item Bootstrap per lo stile e alcuni componenti preconfezionati
-    \item axios per le chiamate API
-    \item toastify per mostrare toast multipli in fase di validazione del form del paziente
+    \item \textbf{Bootstrap}: Per lo stile e alcuni componenti preconfezionati.
+    \item \textbf{Axios}: Per le chiamate API.
+    \item \textbf{Toastify}: Per mostrare notifiche (toast) in fase di validazione del form del paziente.
 \end{itemize}
 
-Ho avuto modo di operare piccole modifiche anche al backend, in particolare nella risposta tornata al frontend per calcolare le visualizzazioni. In origine infatti tra i campi modificabili vi era l'età, tuttavia a seguito di analisi si è concluso che non era una dimensione che potesse destare l'interesse del medico, quindi si è deciso di sostituirlo con il peso. In tal modo quindi il medico a frontend può verificare se il paziente, qualcosa aumentasse o diminuisse di peso, avrebbe una migliore risposta all'operazione oggetto della discussione.\\ 
-Ho inoltre predisposto la POST degli endpoint che ricevono i form di valutazione dell'utente, in modo tale che il collega potesse successivamente sviluppare le feature per il salvataggio a csv del form compilato.
+Queste librerie sono state installate attraverso il package manager npm, che facilita la gestione delle dipendenze del progetto. Il vantaggio di npm è l'accesso a migliaia di pacchetti open source, facilitando l'aggiornamento e la gestione delle librerie utilizzate. Il vantaggio di npm è che si ha accesso a migliaia di pacchetti open source, facilita l'aggiornamento e la gestione delle librerie usate per il progetto, attraverso script di build permette il build e deploy del progetto. 
 
-\section{Validazione}
+\subsection{Flask}
+Flask è un microframework per Python, è stato scelto per la sua semplicità e flessibilità in quanto consente di costruire applicazioni web leggere e modulari.
+Ho operato modifiche anche al backend, scritto in Flask, in particolare nella risposta inviata al frontend per calcolare le visualizzazioni. In origine, tra i campi modificabili vi era l'età, ma a seguito di analisi si è concluso che non era una dimensione di interesse per il medico. Pertanto, è stata sostituita con il peso.\\ 
+Ho inoltre predisposto la POST degli endpoint che ricevono i form di valutazione dell'utente, in modo tale che il collega del backend potesse successivamente sviluppare le feature per il salvataggio a csv del form compilato.
+La struttura del backend è così composta: 
+\begin{itemize}
+    \item \textbf{flaskapp.py}: è il punto d'ingresso principale per lanciare il progetto e contiene le rotte e le logiche di gestione delle richieste.
+    \item \textbf{utils.py}: è il file dove sono presenti tutte le funzioni che si occupano di realizzare le visualizzazioni da inviare al frontend.
+\end{itemize}
+
+\subsection{Validazione}
 La validazione merita una menzione a parte. Il software opera una doppia validazione: una lato frontend quando l'utente compila i campi, in modo tale da avere subito feedback se qualcosa non è corretto; questa viene fatta tramite chiamata a funzioni di validazioni implementate inizialmente dalla collega e successivamente evolute da me perchè funzionanti con React. Una lato backend, il quale controlla il form pervenuto e verifica se sia tutto conforme.\\
 Se lato frontend non dovessero esserci segnalazioni di errori, ma al contrario il backend dovesse rispondere con un errore, questo viene notificato al frontend e l'utente può vedere a video una pagina di errore con la descrizione dell'errore. Nel caso in cui il backend dovesse rispondere errore 500 l'utente vedrà una pagina di errore con descrizione generica. 
 
-\section{La struttura}
+\subsection{La struttura}
 Le pagine principali sono le seguenti:\\ 
 \begin{itemize}
 \item Wizard: è presente il wizard iniziale dove l'utente compila i dati del paziente; si compone di 2 step dopo il primo è la scelta della zona da operare, il secondo è l'effettivo inserimento manuale dei dati
@@ -63,5 +73,13 @@ Le pagine principali sono le seguenti:\\
 All'interno di queste pagine è possibile trovare diversi componenti necessari a suddividere ulteriormente la complessità delle pagine e delle logiche.\\ 
 Abbiamo quindi il componente per l'header, gli step del wizard, il contenuto della dialog.\\
 
-Nota importante è l'utilizzo del global context, ovvero un contesto globale che permette di condividere informazioni tra i diversi componenti senza dover sottostare per forza alla relazione parent-child. All'interno del global context possiamo trovare la gestione degli step, gran parte del form del wizard compilato dall'utente in quanto molte informazioni sono necessarie in più pagine e componenti, i dati fetchati in quanto servono alla pagina Results per calcolare le visualizzazioni. In particolare il global context si occupa di controllare anche se parte di questi dati sono già presenti nel local storage del browser, quindi di inizializzare le rispettive strutture dati. 
+Nota importante è l'utilizzo del \textit{global context}, ovvero un contesto globale che permette di condividere informazioni tra i diversi componenti senza dover sottostare alla relazione parent-child. All'interno del global context possiamo trovare la gestione degli step, gran parte del formi iziale compilato dall'utente in quanto molte informazioni sono necessarie in più pagine e componenti, i dati fetchati in quanto servono alla pagina Results per calcolare le visualizzazioni. Il global context si occupa anche di controllare anche se parte di questi dati sono già presenti nel local storage del browser, quindi di inizializzare le rispettive strutture dati.\\
+
+La costruzione del wizard compilato dall'utente avviene in maniera dinamica, questo vuol che in base alla prima preferenza espressa dall'utente (spine o knee) i campi da compilare cambieranno. Questa scelta è stata implementata per più motivi: il primo è che inizialmente le operazioni da esplorare erano tre, ovvero hip, knee, spine; il secondo è che in base alla scelta dell'utente i campi del form erano effettivamente diversi, ed era ridondante utilizzare componenti react differenti in base al form necessario. Per implementare questa feature mi sono avvalsa dell'uso di un json di dati, dove viene inserita la lista di campi che devono comparire e le loro caratteristiche, ovvero con che nome devono essere inviati a backend, che tipo sono (number, text, select, radio) e quale sarà la funzione che si occuperà dalla validazione; il terzo è che qualora si volessero ampliare le parti del corpo operate che un medico può esplorare basterà aggiungere il corrispettivo delle voci a backend anche a frontend, limitanto le modifiche da apportare. 
+
+\begin{figure}[!ht] 
+    \centering 
+    \includegraphics[width=0.9\columnwidth]{dynamic-form-example} 
+    \caption{Natura dell'incertezza}
+\end{figure}
 
