@@ -1,12 +1,36 @@
 \chapter{User Experience }
 \label{cap:user-experience}
 
-\subsection{Il progetto in partenza}
+Il ridisegno dell'interfaccia di un prodotto digitale richiede un'approfondita comprensione delle esigenze degli utenti, delle attività che devono svolgere e delle interazioni tra le varie componenti del sistema. Per raggiungere questo obiettivo, ho adottato un approccio integrato che combina il Design Centrato sull'Utente, il Design Centrato sull'Attività e il Design dei Sistemi, di cui parlerò nel capitolo \ref{cap:sviluppo-software}. Questo metodo mi ha permesso di disegnare e successivamente sviluppare un'interfaccia intuitiva, efficiente e capace di rispondere alle aspettative degli utenti finali.
+
+\section{Design Centrato sull'Utente}
+
+Il Design Centrato sull'Utente (User-Centered Design, UCD) è stato il punto di partenza fondamentale per il mio lavoro. La comprensione del target di utenti ha guidato ogni decisione progettuale, assicurando che l'interfaccia fosse realmente adatta a chi l'avrebbe utilizzata.\\
+Ho iniziato il processo con una fase di indagine per comprendere chi fossero gli utenti del mio prodotto e capire meglio le loro necessità e aspettative.\\
+
+Le personas hanno rivelato informazioni cruciali:
+\begin{itemize}
+    \item necessità di accesso rapido alle informazioni: gli utenti hanno bisogno di trovare le informazioni immediatamente e in modo chiaro, senza dover navigare attraverso complicati menu.
+    \item preferenza per la semplicità: il target desidera un'interfaccia pulita e semplice, priva di elementi superflui che potessero distrarre o confondere.
+    \item efficacia ed efficienza: gli utenti sono persone spesso di fretta e non vogliono perdere tempo. Era essenziale che l'interfaccia consentisse di completare le operazioni rapidamente e senza intoppi.
+\end{itemize}
+
+Con queste informazioni ho ridisegnato l'interfaccia con un focus sulla chiarezza e l'intuitività. Ogni elemento dell'interfaccia è stato progettato per essere intuitivo e facile da usare, ho utilizzato mockup e test di usabilità per raccogliere feedback dagli utenti e degli stakeholder, assicurandomi che ogni modifica migliorasse realmente l'esperienza utente e rispettasse i requisiti richiesti.
+
+\section{Design Centrato sull'Attività}
+
+Il Design Centrato sull'Attività (Activity-Centered Design) mi ha permesso di concentrarmi sulle specifiche attività che gli utenti devono svolgere per raggiungere i loro obiettivi. Questo approccio ha integrato e completato il Design Centrato sull'Utente, fornendo una visione più operativa e pratica delle esigenze degli utenti.\\
+
+A partire dal POC esistente ho compreso quali sono le attività svolte dagli utenti, identificando i compiti principali e i flussi di lavoro tipici. Questo processo ha incluso l'osservazione diretta degli utenti mentre interagivano con il prodotto e la mappatura dei loro percorsi operativi.\\
+Basandomi sull'analisi delle attività, ho ridisegnato l'interfaccia per facilitare l'esecuzione delle operazioni più frequenti. Ho creato percorsi di navigazione ottimizzati, con flussi di lavoro chiaramente definiti e accessibili con il minor numero di click possibile. 
+
+
+\section{Il progetto in partenza}
 Inizialmente, l'applicazione era composta da due sole pagine: una per il wizard in cui l'utente compilava il form di dettaglio del paziente, e una seconda per la visualizzazione dei risultati, dove i grafici erano disposti in una griglia che occupava tutto lo spazio disponibile. Una delle principali carenze del POC iniziale era la mancanza di contesto nei grafici. Questo rendeva difficile la comprensione per utenti senza un background in data science, poiché non potevano interpretare correttamente i dati senza una spiegazione preliminare.\\
 
 Un ulteriore problema riscontrato riguardava la lunghezza del wizard, che inizialmente consisteva di quattro step. Successivamente, un passo è stato eliminato e accorpato al primo per migliorare l'usabilità.
 
-\subsection{Modifiche apportate}
+\section{Modifiche apportate}
 
 Nella transizione da POC a software completo, il numero di pagine è aumentato: una per il wizard, una per i risultati, una per la valutazione dell'utente circa la piattaforma, e una per il tutorial. Il tutorial è stato posizionato nell'header per garantire un facile accesso da parte dell'utente in qualsiasi momento. Inoltre, il wizard è stato semplificato, eliminando uno step.\\
 
