@@ -102,3 +102,24 @@ Tra questi vi è un commento in particolare che vale la pena citare:
     \textit{Se l'intento è quello di avere un quadro chiaro e completo del paziente la prima opzione è la migliore perché sono visualizzate più informazioni in poco spazio, dando un quadro generale dello stato di salute; si perde però il dettaglio o delle note che potrebbero risultare comunque interessanti in caso di pazienti/operazioni particolari che invece nella seconda opzione potrebbero essere più facili da individuare.}
 \end{quote}
 Questo commento mi ha fatto pensare che in futuro si potrebbe aggiungere un bottone che cambi il layout dell'interfaccia, in modo tale da avere una visualizzazione raggruppata oppure una visualizzazione a lista.
+
+\subsection{Think aloud}
+Sono stati condotti anche dei test di usabilità con utenti appartenenti all'ambito medico.
+I task richiesti agli intervistati sono stati:
+\begin{itemize}
+    \item compila il form contenente i dati e accedi alla pagina di risultati
+    \item modifica le dimensioni su cui indagare
+    \item accedi alla pagina di evaluate platform
+    \item torna alla pagina del wizard e compila un nuovo questionario 
+\end{itemize}
+
+\subsubsection{Partecipante A}
+Il partecipante A è un medico ortopedico specializzato nelle protesi all'anca e al ginocchio.
+Sono stati condotti due test, uno con score fisico e uno con score mentale, entrambi mostranti un certo livello di incertezza nell'esito post operatorio. \\
+Durante l'utilizzo del software l'utente si è saputo muovere agilmente all'interno delle pagine. Le funzionalità sono apparse chiare e intuitive, non ha riscontrato difficoltà di sorta nel portare a termine i suoi task. \\
+Dopo un contesto iniziale sulla prima visualizzazione, ha ritenuto il grafico chiaro, è stato in grado di interagire con i parametri per verificare come lo stato di salute del paziente potesse cambiare nel post operatorio. La seconda visualizzazione (il violinplot) è stata ritenuta molto buona. E' stata valutata come comprensibile, chiara, dava precise indicazioni sullo stato di salute del paziente nel post operatorio. La terza visualizzazione (il circulargraph e il boxplot) sono state valutate abbastanza positivamente. Il boxplot è stato ritenuto molto chiaro ed esplicito, il circulargraph invece è stato ritenuto meno ovvio nel risultato. \\ 
+L'opinione generale nei confronti dell'interfaccia è stata molto positiva, l'utente l'ha definita facilissima da comprendere. \\
+Al secondo questionario compilato si è andato ad indagare l'opinione del medico nei confronti dei grafici. In particolare dal questionario emergeva che il paziente avesse un nuon physical score ma un mental score meno positivo. Nonostante i grafici dessero un esito incerto il medico ha affermato che opererebbe il paziente, perchè è importante tenere conto dello stato mentale del paziente in relazione al suo dolore fisico. Secondo il medico infatti un paziente può avere un mental score negativo perchè sta male, ma se a seguito di un'operazione il suo dolore scomparisse allora il suo mental score migliorerebbe. Se il fattore predittivo tenesse conto dell'interazione tra la VAS e lo stato mentale del paziente il grafico sarebbe molto più affidabile.\\
+L'utente ha sollevato inoltre che sarebbe opportuno mettere dei target del dolore percepito nel post operatorio, così da sfruttarli nell'ambito delle predizioni. Ha fattore notare inoltre che nell'ambito dello stato mentale del paziente è importante indagare anche su due fattori: il primo è il tempo intercorso tra la prima comparsa del dolore fisico ad oggi, la seconda di come si sente a seguito della lista d'attesa per l'operazione. Infatti pazienti che stanno male e che sono posti di fronte ad una lista d'attesa lunga hanno un peggioramento del loro mental score. \\
+Una lode fatta dal medico riguarda il fatto che tra i prametri modificabili dei grafici figurano parametri concreti su cui effettivamente si può intervenire. Una mia domanda è stata se ritiene che le dimensioni disponibili su cui indagare siano appropriate a formare un'opinione circa lo stato di salute a 6 mesi dall'operazione. La risposta è stata si, e che varrebbe la pena aggiungere l'HOOS, il KOOS, e il VAS. Attualmente HOOS e KOOs non esistono nel calcolo predittivo operato dal backend quindi questo suggerimento si configura come uno sviluppo futuro. \\
+Un'altra domanda che è stata fatta riguarda la modalità di inserimento dei dati. Nello specifico è stato chiesto se l'utente ritiene più facile avere questi valori numerici da copiare nell'apposito input text, oppure se sia meglio presentare il PROM concreto e lasciare che l'utente compili la risposta così come è stata indicata dal paziente. L'utente ha risposto che l'attuale modalità di inserito dei dati è preferibile. Sarebbe ancora più preferibile avere accesso al registro dei dati che ha a disposizione l'istituto Galeazzi. 
