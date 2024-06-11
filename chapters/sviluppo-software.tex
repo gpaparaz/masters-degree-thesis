@@ -8,7 +8,7 @@ Ho analizzato l'architettura del sistema, identificando tutte le componenti prin
 L'obiettivo era garantire che il frontend fosse perfettamente allineato con le funzionalità offerte dal backend, facendo da filtro iniziale per prevenire l'errore nell'utente ed evitare il rischio di atterrare in pagine di errore di difficile gestione o comprensione per l'utente inesperto. \\
 
 Per implementare il Design dei Sistemi, ho utilizzato un approccio modulare, suddividendo l'interfaccia in componenti riutilizzabili. Ogni componente è stato progettato per essere indipendente e facilmente integrabile con gli altri, seguendo i principi della progettazione a strati.\\
-Ho separato il frontend (React) dal backend (Flask), garantendo che ciascuno potesse essere sviluppato, testato e aggiornato indipendentemente. Questa separazione ha facilitato non solo la manutenzione del software, ma anche l'implementazione di nuove funzionalità, permettendo un'evoluzione più rapida del prodotto.\\
+Ho separato il frontend (React) dal backend (Flask), garantendo che ciascuno potesse essere sviluppato, testato e aggiornato indipendentemente. Questa separazione ha facilitato non solo la manutenzione del software, ma in futuro permetterà l'implementazione di nuove funzionalità, garantendo un'evoluzione più rapida del prodotto.\\
 
 
 \section{Il progetto in partenza}
@@ -23,7 +23,7 @@ Il frontend invece era composto da tre due file html, uno per il form e uno per 
 
 \section{Analisi e motivazioni}
 
-Dopo una prima analisi del software ho proposto di operare una divisione più netta di frontend e backend avvalendomi dell'ausilio di un framework per il frontend. Attraverso questa scelta si è seguito il principio di progettazione architetturale noto come \textit{Architettura a Strati} o \textit{Architettura a Livelli} (Layered Architecture).
+Dopo una prima analisi del software e un confronto con gli stakeholder ho proposto di operare una divisione più netta di frontend e backend avvalendomi dell'ausilio di un framework per il frontend. Attraverso questa scelta si è seguito il principio di progettazione architetturale noto come \textit{Architettura a Strati} o \textit{Architettura a Livelli} (Layered Architecture).
 
 Nell'architettura a strati, l'applicazione è suddivisa in diversi strati logici o livelli, ognuno dei quali ha una responsabilità specifica. Nel mio caso:
 \begin{enumerate}
@@ -44,8 +44,8 @@ La modularità introdotta permette inoltre di scalare l'applicazione con maggior
 Il mio focus era principalmente la possibilità di ampliare il software operando un limitato numero di modifiche, quindi portare il frontend e la gestione dei grafici ad una discreta maturità.
 
 \section{Sviluppi}
-Gli sviluppi sono proseguiti in parallelo tra me e i colleghi che ho assistito. Io mi sono occupata principalmente del frontend, sono partita dall'interfaccia del wizard mentre ho assistito i colleghi nella realizzazione di endpoint e sistemazione del backend.\\
-Dapprima sono stati realizzati endpoint separati per la validazione e il submit del form relativo ai dati del paziente. Successivamente, su mia sollecitazione, le logiche sono state accorpate in un unico endpoint che rispondesse con la visualizzazione oppure elencasse i campi non validi. La validazione è stata implementata sia lato frontend che lato backend per garantire maggiore robustezza.\\
+Gli sviluppi sono proseguiti in parallelo tra me e i colleghi che ho coordinato. Io mi sono occupata principalmente del frontend, sono partita dall'interfaccia del wizard mentre ho indirizzato e supportato i colleghi nella realizzazione di endpoint, correzione del backend e creazione del salvataggio dei questionario compilati dagli utenti sulla piattaforma.\\
+Dapprima sono stati realizzati endpoint separati per la validazione e il submit del form relativo ai dati del paziente. Successivamente, su mia indicazione, le logiche sono state accorpate in un unico endpoint che rispondesse con la visualizzazione oppure elencasse i campi non validi. La validazione è stata implementata sia lato frontend che lato backend per garantire maggiore robustezza.\\
 
 \subsection{React}
 Il frontend è stato sviluppato in React, le principali librerie usate sono state:
@@ -71,7 +71,7 @@ La struttura del backend è così composta:
 Il software opera una doppia validazione:
 \begin{itemize} 
     \item una lato frontend quando l'utente compila i campi, in modo tale da avere subito feedback se qualcosa non è corretto; questa viene fatta tramite chiamata a funzioni di validazioni implementate inizialmente dalla collega e successivamente evolute da me affinchè funzionassero in ambiente React. 
-    \item una lato backend, il quale controlla il form pervenuto e verifica se sia tutto conforme.\\
+    \item una lato backend, il quale controlla il form pervenuto e verifica se sia tutto conforme.
 \end{itemize}
 
 Se lato frontend non dovessero esserci segnalazioni di errori, ma al contrario il backend dovesse rispondere con un errore, questo viene notificato al frontend e l'utente può vedere a video una pagina di errore con la descrizione di cosa è andato storto. Nel caso in cui il backend dovesse rispondere errore 500 l'utente vedrà una pagina di errore con descrizione generica. 
@@ -87,7 +87,9 @@ Le pagine principali sono le seguenti:\\
 All'interno di queste pagine è possibile trovare diversi componenti necessari a suddividere ulteriormente la complessità delle pagine e delle logiche.\\ 
 Abbiamo quindi il componente per l'header, gli step del wizard, il contenuto della dialog.\\
 
-Nota importante è l'utilizzo del \textit{global context}, ovvero un contesto globale che permette di condividere informazioni tra i diversi componenti senza dover sottostare alla relazione parent-child. All'interno del global context possiamo trovare la gestione degli step, gran parte del formi iziale compilato dall'utente in quanto molte informazioni sono necessarie in più pagine e componenti, i dati fetchati in quanto servono alla pagina Results per calcolare le visualizzazioni. Il global context si occupa anche di controllare anche se parte di questi dati sono già presenti nel local storage del browser, quindi di inizializzare le rispettive strutture dati.\\
+Lato frontend mi sono avvalsa inoltre di alcuni pattern, tra i quali lo \textit{State Management Patterns} utilizzando il \textit{global context}, ovvero un contesto globale che permette di condividere informazioni tra i diversi componenti senza dover sottostare alla relazione parent-child. All'interno del global context possiamo trovare la gestione degli step, gran parte del formi iziale compilato dall'utente in quanto molte informazioni sono necessarie in più pagine e componenti, i dati fetchati in quanto servono alla pagina Results per calcolare le visualizzazioni. Il global context si occupa anche di controllare anche se parte di questi dati sono già presenti nel local storage del browser, quindi di inizializzare le rispettive strutture dati.\\
+
+Il fetch delle API relative al submit del wizard avviene tramite custom hooks; questa scelta è stata fatta in quanto all'operazione che l'utente vuole esplorare si può chiamare endpoint differenti. Utilizzare custom hooks assieme al global context ha permesso inoltre di semplificare la gestione delle informazioni condivise all'interno dell'applicativo.\\
 
 La costruzione del wizard compilato dall'utente avviene in maniera dinamica, questo vuol che in base alla prima preferenza espressa dall'utente (spine o hip/knee) i campi da compilare cambieranno. Questa scelta è stata implementata per più motivi: il primo è che inizialmente le operazioni da esplorare erano tre, ovvero hip, knee, spine; il secondo è che in base alla scelta dell'utente i campi del form erano effettivamente diversi, ed era ridondante utilizzare componenti react differenti in base al form necessario. Per implementare questa feature mi sono avvalsa dell'uso di un JSON di dati, dove viene inserita la lista di campi che devono comparire e le loro caratteristiche, ovvero con che nome devono essere inviati a backend, che tipo sono (number, text, select, radio) e quale sarà la funzione che si occuperà dalla validazione; il terzo è che qualora si volessero ampliare le parti del corpo operate che un medico può esplorare basterà aggiungere il corrispettivo delle voci a backend anche a frontend, limitanto quindi le modifiche da apportare ad due soli file per il frontend (il JSON con la lista dei campi e la lista di funzioni di validazione). 
 
@@ -96,4 +98,3 @@ La costruzione del wizard compilato dall'utente avviene in maniera dinamica, que
     \includegraphics[width=0.9\columnwidth]{dynamic-form-example} 
     \caption{Natura dell'incertezza}
 \end{figure}
-
